@@ -3,12 +3,16 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Route, Routes } from 'react-router-dom';
 import { Movies, MovieInfo, Profile, Navbar, Actors } from './index';
 
+import useStyles from './styles';
+
 function App() {
+  const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <Navbar />
-      <main>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
         <Routes>
           <Route exact path="/" element={<Movies />} />
           <Route exact path="/movie/:id" element={<MovieInfo />} />
