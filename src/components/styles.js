@@ -6,10 +6,11 @@ const useStyles = makeStyles(() => ({
     height: '100%',
   },
   content: {
-    display: 'flex',
+    flexGrow: '1',
+    padding: '2em',
   },
   toolbar: {
-    display: 'flex',
+    height: '70px',
   },
 }));
 
