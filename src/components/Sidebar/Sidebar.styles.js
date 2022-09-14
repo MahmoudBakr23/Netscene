@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   imageLink: {
     display: 'flex',
     justifyContent: 'center',
@@ -8,6 +8,10 @@ const useStyles = makeStyles(() => ({
   },
   image: {
     width: '70%',
+  },
+  links: {
+    color: theme.palette.text.primary,
+    textDecoration: 'none',
   },
 }));
 
