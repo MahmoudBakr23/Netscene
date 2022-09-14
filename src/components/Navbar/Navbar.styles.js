@@ -1,6 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+const drawerWidth = '240px';
+
 const useStyles = makeStyles((theme) => ({
+  appbar: {
+    backgroundColor: '#0086D4',
+  },
   toolbar: {
     height: '80px',
     display: 'flex',
@@ -15,6 +20,21 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       display: 'none',
+    },
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  linkButton: {
+    '&:hover': {
+      color: 'white !important',
+      textDecoration: 'none',
     },
   },
 }));
