@@ -3,7 +3,7 @@ import { AppBar, IconButton, Toolbar, Drawer, Button, Avatar, useMediaQuery } fr
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@material-ui/core/styles';
-import Sidebar from '../Sidebar/Sidebar';
+import { Sidebar } from '../index';
 
 import useStyles from './Navbar.styles';
 
@@ -62,13 +62,13 @@ function Navbar() {
           {isMobile ? (
             <Drawer
               variant="temporary"
-              anchor="left"
+              anchor="right"
               open={mobileOpen}
               onClose={() => setMobileOpen((previousMobileOpen) => !previousMobileOpen)}
               classes={{ paper: classes.drawerPaper }}
               ModalProps={{ keepMounted: true }}
             >
-              <Sidebar setMobileOpen={setMobileOpen} />
+              <Sidebar />
             </Drawer>
           ) : (
             <Drawer
@@ -76,7 +76,7 @@ function Navbar() {
               variant="permanent"
               open
             >
-              <Sidebar setMobileOpen={setMobileOpen} />
+              <Sidebar />
             </Drawer>
           )}
         </nav>

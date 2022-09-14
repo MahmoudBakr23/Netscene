@@ -20,7 +20,7 @@ const demoCategories = [
   { label: 'Anime', value: 'anime' },
 ];
 
-function Sidebar({ setMobileOpen }) {
+function Sidebar() {
   const theme = useTheme();
   const classes = useStyles(theme);
   return (
@@ -34,7 +34,7 @@ function Sidebar({ setMobileOpen }) {
       </Link>
       <Divider />
       <List>
-        <ListSubheader>Categories</ListSubheader>
+        <ListSubheader className={classes.listSub}>Categories</ListSubheader>
         {categories.map(({ label, value }) => (
           <Link key={value} className={classes.links} to="/">
             <ListItem onClick={() => {}} button>
