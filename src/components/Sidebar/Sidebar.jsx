@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '@material-ui/core/styles';
 import useStyles from './Sidebar.styles';
 import { useGetGenresQuery } from '../../services/TMDB';
+import genreIcons from '../../assets/genres';
 
 const redLogo = 'https://fontmeme.com/permalink/220914/2d14ec30cf8c558cbbbedc5a9d4cf443.png';
 const blueLogo = 'https://fontmeme.com/permalink/220914/1b1fd1646ea20814fb7c6af933bf19c6.png';
@@ -33,9 +34,9 @@ function Sidebar() {
         {categories.map(({ label, value }) => (
           <Link key={value} className={classes.links} to="/">
             <ListItem onClick={() => {}} button>
-              {/* <ListItemIcon>
-                <img src={blueLogo} className={classes.genreImages} height={30} />
-              </ListItemIcon> */}
+              <ListItemIcon>
+                <img src={genreIcons[label.toLowerCase()]} className={classes.genreImages} height={30} />
+              </ListItemIcon>
               <ListItemText primary={label} />
             </ListItem>
           </Link>
@@ -51,9 +52,9 @@ function Sidebar() {
         ) : data.genres.map(({ name, id }) => (
           <Link key={id} className={classes.links} to="/">
             <ListItem onClick={() => {}} button>
-              {/* <ListItemIcon>
-                <img src={blueLogo} className={classes.genreImages} height={30} />
-              </ListItemIcon> */}
+              <ListItemIcon>
+                <img src={genreIcons[name.toLowerCase()]} className={classes.genreImages} height={30} />
+              </ListItemIcon>
               <ListItemText primary={name} />
             </ListItem>
           </Link>
