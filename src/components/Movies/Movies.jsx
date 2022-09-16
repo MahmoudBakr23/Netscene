@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Box, CircularProgress, useMediaQuery, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import useStyles from './Movies.styles';
 import { MovieList } from '../index';
-
+import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 import { useGetMoviesQuery } from '../../services/TMDB';
 
 function Movies() {
-  const { data, error, isFetching } = useGetMoviesQuery();
+  const { genreOrCategoryName } = useSelector((state) => state.currentGenreOrCategory);
+  const [page, setPage] = useState(1);
+  const { data, error, isFetching } = useGetMoviesQuery({ genreOrCategoryName, page });
 
   if (isFetching) {
     return (
@@ -28,8 +29,6 @@ function Movies() {
     );
   }
   if (error) return 'An error has occured.';
-
-  const classes = useStyles();
 
   return (
     <div>
