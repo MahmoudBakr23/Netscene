@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, CircularProgress, useMediaQuery, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { MovieList } from '../index';
-import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
+
 import { useGetMoviesQuery } from '../../services/TMDB';
 
 function Movies() {

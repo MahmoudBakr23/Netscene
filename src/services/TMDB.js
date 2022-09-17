@@ -17,7 +17,7 @@ export const tmdbApi = createApi({
           return `movie/${genreOrCategoryName}?page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
         }
         if (genreOrCategoryName && typeof genreOrCategoryName === 'number') {
-          return `discover/movie?with_genres=${genreOrCategoryName}&sort_by=vote_count.desc&page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
+          return `discover/movie?with_genres=${genreOrCategoryName}&sort_by=popularity.desc&page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
         }
         return `movie/popular?page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
       },
