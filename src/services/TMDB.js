@@ -12,14 +12,21 @@ export const tmdbApi = createApi({
     }),
     // Get Movies by [Type]
     getMovies: builder.query({
-      query: ({ genreOrCategoryName, page }) => {
+      query: ({ genreOrCategoryName, page, searchQuery, adultQuery }) => {
+        // Get Movies by Search
+        if (searchQuery) {
+          return `/search/movie?query=${searchQuery}&include_adult=${adultQuery}&page=${page}&api_key=${tmdbApiKey}`;
+        }
+        // Get Movies by category name
         if (genreOrCategoryName && typeof genreOrCategoryName === 'string') {
-          return `movie/${genreOrCategoryName}?page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
+          return `movie/${genreOrCategoryName}?page=${page}&include_adult=${adultQuery}&api_key=${tmdbApiKey}`;
         }
+        // Get Movies by genre name
         if (genreOrCategoryName && typeof genreOrCategoryName === 'number') {
-          return `discover/movie?with_genres=${genreOrCategoryName}&sort_by=popularity.desc&page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
+          return `discover/movie?with_genres=${genreOrCategoryName}&include_adult=${adultQuery}&page=${page}&api_key=${tmdbApiKey}`;
         }
-        return `movie/popular?page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
+        // Get popular Movies
+        return `movie/popular?page=${page}&include_adult=${adultQuery}&api_key=${tmdbApiKey}`;
       },
     }),
   }),
