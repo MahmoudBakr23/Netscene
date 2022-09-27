@@ -17,7 +17,7 @@ function Navbar() {
   const theme = useTheme();
   const classes = useStyles({ theme });
   const dispatch = useDispatch();
-  const accountId = localStorage.getItem('accountId');
+  // const accountId = localStorage.getItem('accountId');
   const token = localStorage.getItem('request_token');
   const sessionId = localStorage.getItem('session_id');
 
@@ -68,12 +68,11 @@ function Navbar() {
               <Button
                 color="inherit"
                 component={Link}
-                to={`/profile/${accountId}`}
+                to={`/profile/${user.id}`}
                 className={classes.linkButton}
                 onClick={() => {}}
               >
                 {!isMobile && user.username}
-                &nbsp;
                 &nbsp;
                 <Avatar
                   style={{ width: 30, height: 30 }}
