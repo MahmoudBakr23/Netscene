@@ -17,12 +17,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       margin: '0 auto',
       width: '50%',
-      height: '350px',
     },
     [theme.breakpoints.down('sm')]: {
       margin: '0 auto',
-      width: '50%',
-      height: '350px',
+      width: '70%',
       marginBottom: '30px',
     },
   },

@@ -10,10 +10,13 @@ function Search() {
   const [query, setQuery] = useState('');
   const classes = useStyles();
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(searchMovie(query));
   });
+
+  if (location.pathname !== '/') return null;
 
   return (
     <div className={classes.searchContainer}>
