@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Box, Button, CircularProgress, Grid, Typography } from '@material-ui/core';
 import { ArrowBack } from '@mui/icons-material';
@@ -6,16 +6,18 @@ import { ArrowBack } from '@mui/icons-material';
 import { useGetActorsDetailsQuery, useGetMoviesByActorIdQuery } from '../../services/TMDB';
 import useStyles from './Actors.styles';
 import MovieList from '../MovieList/MovieList';
+import Pagination from '../Pagination/Pagination';
 
 function Actors() {
   const { id } = useParams();
   const { data, isFetching, error } = useGetActorsDetailsQuery(id);
-  const page = 1;
-  const { data: movies } = useGetMoviesByActorIdQuery({ id, page });
+  const [page, setPage] = useState(1);
+
+  const { data: movies, isFetching: isMoviesFetching } = useGetMoviesByActorIdQuery({ id, page });
   const navigate = useNavigate();
   const classes = useStyles();
 
-  if (isFetching) {
+  if (isFetching || isMoviesFetching) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center">
         <CircularProgress size="8rem" />
@@ -68,6 +70,7 @@ function Actors() {
           Movies
         </Typography>
         {movies && <MovieList movies={movies} numberOfMovies={12} />}
+        <Pagination currentPage={page} setPage={setPage} totalPages={movies?.total_pages} />
       </Box>
     </>
   );
