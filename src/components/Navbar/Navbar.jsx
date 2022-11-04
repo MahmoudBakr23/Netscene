@@ -4,7 +4,8 @@ import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-materi
 import { Link } from 'react-router-dom';
 import { useTheme } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { Sidebar, Search } from '../index';
+// eslint-disable-next-line import/named
+import { Sidebar, Search } from '..';
 import { fetchToken, getSessionId, moviesApi } from '../../utils';
 import { setUser, userSelector } from '../../features/auth';
 import { ColorModeContext } from '../../utils/ToggleMode';
