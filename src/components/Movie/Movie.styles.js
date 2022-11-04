@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    color: theme.palette.text.primaty,
+    color: theme.palette.text.primary,
     textOverflow: 'ellipsis',
     width: '230px',
     whiteSpace: 'nowrap',

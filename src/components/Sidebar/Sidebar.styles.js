@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   listSub: {
     position: 'static',
   },
+  genreImages: {
+    filter: theme.palette.type === 'dark' && 'invert(1)',
+  },
 }));
 
 export default useStyles;

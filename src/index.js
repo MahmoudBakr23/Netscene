@@ -1,21 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import store from './app/store';
 import './index.css';
-
-const theme = createTheme({});
+import ToggleModeProvider from './utils/ToggleMode';
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
+    <ToggleModeProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ThemeProvider>
+    </ToggleModeProvider>
   </Provider>,
   document.getElementById('root'),
 );
