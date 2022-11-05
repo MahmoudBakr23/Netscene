@@ -3,9 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const drawerWidth = '240px';
 
 const useStyles = makeStyles((theme) => ({
-  appbar: {
-    backgroundColor: '#0086D4',
-  },
   toolbar: {
     height: '80px',
     display: 'flex',

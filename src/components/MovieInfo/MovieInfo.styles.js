@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   genreImage: {
-    filter: theme.palette.mode === 'dark' && 'invert(1)',
+    filter: theme.palette.type === 'dark' && 'invert(1)',
     marginRight: '10px',
   },
   links: {

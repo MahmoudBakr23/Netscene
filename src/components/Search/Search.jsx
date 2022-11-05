@@ -28,9 +28,7 @@ function Search() {
           className: classes.input,
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon
-                style={{ color: 'white' }}
-              />
+              <SearchIcon />
             </InputAdornment>
           ),
         }}
