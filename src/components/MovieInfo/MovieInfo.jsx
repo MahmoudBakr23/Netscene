@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Tooltip } from '@material-ui/core';
+import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, Tooltip } from '@material-ui/core';
 import { Rating } from '@mui/material';
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBorderOutlined, Remove, ArrowBack } from '@mui/icons-material';
 import { Link, useParams, useNavigate } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Box, CircularProgress, useMediaQuery, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { MovieList, Pagination } from '../index';
@@ -11,7 +11,7 @@ function Movies() {
   const [page, setPage] = useState(1);
   const { data, error, isFetching } = useGetMoviesQuery({ genreOrCategoryName, page, searchQuery });
   const lg = useMediaQuery((theme) => theme.breakpoints.only('lg'));
-  const numberofMovies = lg ? 16 : 18;
+  const numberofMovies = lg ? 17 : 19;
   if (isFetching) {
     return (
       <Box display="flex" justifyContent="center">
@@ -35,7 +35,7 @@ function Movies() {
   return (
     <div>
       <FeaturedMovie movie={data.results[0]} />
-      <MovieList movies={data} numberOfMovies={numberofMovies} />
+      <MovieList movies={data} numberOfMovies={numberofMovies} excludeFirst />
       <Pagination currentPage={page} setPage={setPage} totalPages={data.total_pages} />
     </div>
   );

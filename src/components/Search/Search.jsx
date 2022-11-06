@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, InputAdornment } from '@material-ui/core';
 import { Search as SearchIcon } from '@mui/icons-material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import useStyles from './Search.styles';
 import { searchMovie } from '../../features/currentGenreOrCategory';
