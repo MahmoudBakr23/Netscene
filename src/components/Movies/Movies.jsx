@@ -34,7 +34,7 @@ function Movies() {
 
   return (
     <div>
-      <FeaturedMovie />
+      <FeaturedMovie movie={data.results[0]} />
       <MovieList movies={data} numberOfMovies={numberofMovies} />
       <Pagination currentPage={page} setPage={setPage} totalPages={data.total_pages} />
     </div>
