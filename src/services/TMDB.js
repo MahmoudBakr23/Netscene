@@ -15,18 +15,18 @@ export const tmdbApi = createApi({
       query: ({ genreOrCategoryName, page, searchQuery }) => {
         // Get Movies by Search
         if (searchQuery) {
-          return `/search/movie?query=${searchQuery}&include_adult=true&page=${page}&api_key=${tmdbApiKey}`;
+          return `/search/movie?query=${searchQuery}&page=${page}&api_key=${tmdbApiKey}`;
         }
         // Get Movies by category name
         if (genreOrCategoryName && typeof genreOrCategoryName === 'string') {
-          return `movie/${genreOrCategoryName}?page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
+          return `movie/${genreOrCategoryName}?page=${page}&api_key=${tmdbApiKey}`;
         }
         // Get Movies by genre name
         if (genreOrCategoryName && typeof genreOrCategoryName === 'number') {
-          return `discover/movie?with_genres=${genreOrCategoryName}&include_adult=true&page=${page}&api_key=${tmdbApiKey}`;
+          return `discover/movie?with_genres=${genreOrCategoryName}&page=${page}&api_key=${tmdbApiKey}`;
         }
         // Get popular Movies
-        return `movie/popular?page=${page}&include_adult=true&api_key=${tmdbApiKey}`;
+        return `movie/popular?page=${page}&api_key=${tmdbApiKey}`;
       },
     }),
     getMovie: builder.query({
@@ -44,7 +44,7 @@ export const tmdbApi = createApi({
       query: (id) => `person/${id}?api_key=${tmdbApiKey}`,
     }),
     getMoviesByActorId: builder.query({
-      query: ({ id, page }) => `/discover/movie?with_cast=${id}&page=${page}&include_adult=true&api_key=${tmdbApiKey}`,
+      query: ({ id, page }) => `/discover/movie?with_cast=${id}&page=${page}&api_key=${tmdbApiKey}`,
     }),
   }),
 });
